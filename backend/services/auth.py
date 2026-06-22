@@ -48,3 +48,16 @@ def create_access_token(data: dict):
     )
 
     return token
+
+def decode_token(token: str):
+    try:
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
+
+        return payload
+
+    except:
+        return None
